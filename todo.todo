@@ -1,0 +1,54 @@
+Dashboard:
+    Overview
+        ☐ Net Income on Money Invested
+        ☐ Graph of Investment over Time
+        ☐ Percentage Increase
+        ☐ Rate of Increase over Time
+        ☐ Leading Coins
+    Report
+        ☐ Date
+        ☐ Loss/Gain Today (Percentage/Dollar Ammount)
+        ☐ Loss/Gain Total (Percentage/Dollar Ammount)
+        ☐ Changes Per Coin (Percentage/Dollar Ammount)
+    Trends
+        ☐ Growing Coins
+        ☐ What's Gaining Traction
+    News
+        ☐ Reddit Feed (Upvote)
+        ☐ Coin News in General
+        ☐ RSS Feed Style
+
+Charts:
+    ☐ Per Crypto Charts
+    ☐ Sortable By Data (API Allowing)
+    ☐ Show Income/Coin Graph
+
+News Feed:
+    ☐ Reddit Feed (Upvote--)
+    ☐ News in General
+
+Reports:
+    ☐ Reports By Date (API Allowing)
+    ☐ Same as Dashboard Today Reports
+
+Settings:
+    ☐ Name
+    ☐ Email
+    ☐ Password Changing
+    ☐ Coin Manager
+    ☐ Theming
+
+Keep In Mind:
+    Databases
+        ☐ Login Service
+        ☐ CoinDB with User Coin Preferences
+    Graphic Assets
+        ☐ Logo
+        ☐ GP/AS Images
+        ☐ Icon
+    API
+        ☐ Coinbase API
+    Payment Processing
+        ☐ Online Payments
+    Refferal Program
+        ☐ Referral By Email
