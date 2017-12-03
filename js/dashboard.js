@@ -24,14 +24,13 @@ app.controller("DashboardCtrl", function($scope, $http) {
     .success(function(data) {
         $scope.marketData = data;
         calcInvestmentTotals();
-        //drawInvestmentChart();
+        drawInvestmentChart();
     })
     .error(function() {
         alert("Something went wrong with CoinMarketCap's API! :(");
     })
 
     function calcInvestmentTotals() {
-        //console.log("here!@");
         $scope.exactValue = 0;
         $scope.totalInvested = $scope.user.invested;
         $scope.totalProfit = 0;
@@ -57,9 +56,9 @@ app.controller("DashboardCtrl", function($scope, $http) {
 
     function drawInvestmentChart() {
         console.log("madeithere");
-        var ctx = document.getElementById("MainChartYee").getContext('2d');
+        var ctx = document.getElementById("chartInvestmentTotals").getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                 datasets: [{

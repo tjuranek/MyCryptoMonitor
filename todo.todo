@@ -1,10 +1,9 @@
 Dashboard:
     Overview
-        ☐ Net Income on Money Invested
-        ☐ Graph of Investment over Time
-        ☐ Percentage Increase
+        ✔ Total Value @done(2017-12-02 21:37) @project(Dashboard)
+        ✔ Total Invested  @done(2017-12-02 21:37) @project(Dashboard)
+        ✔ Total Profit @done(2017-12-02 21:38) @project(Dashboard)
         ☐ Rate of Increase over Time
-        ☐ Leading Coins
     Report
         ☐ Date
         ☐ Loss/Gain Today (Percentage/Dollar Ammount)
@@ -17,6 +16,10 @@ Dashboard:
         ☐ Reddit Feed (Upvote)
         ☐ Coin News in General
         ☐ RSS Feed Style
+    Charting
+        ☐ Determine Price Range
+        ☐ Allow Time Period Changing
+        ☐ Graph Data
 
 Charts:
     ☐ Per Crypto Charts
