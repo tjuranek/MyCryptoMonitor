@@ -24,7 +24,7 @@ app.controller("DashboardCtrl", function($scope, $http) {
     .success(function(data) {
         $scope.marketData = data;
         calcInvestmentTotals();
-        drawInvestmentChart();
+        //drawInvestmentChart();
     })
     .error(function() {
         alert("Something went wrong with CoinMarketCap's API! :(");
