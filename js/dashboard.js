@@ -24,8 +24,8 @@ app.controller("DashboardCtrl", function($scope, $http) {
     .success(function(data) {
         $scope.marketData = data;
         calcInvestmentTotals();
-        drawInvestmentChart();
-        drawChart("LTC");
+        //drawInvestmentChart();
+        drawChart("ARK");
     })
     .error(function() {
         alert("Something went wrong with CoinMarketCap's API! :(");
@@ -57,7 +57,7 @@ app.controller("DashboardCtrl", function($scope, $http) {
 
     function drawChart(cryptoSym) {
         // GET HISTORICAL DATA FOR CYPTO
-        var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=30";
+        var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=6";
 
         $http.get(url)
         .success(function(data) {

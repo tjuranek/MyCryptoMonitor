@@ -1,72 +1,79 @@
-Charting:
-    Single Line Charts
-        ✔ Make a public function that takes the cryptocurrency being graphed @done(2017-12-04 20:51) @project(Charting)
-        ✔ Call the api for historical data of the crypto @done(2017-12-04 20:51) @project(Charting)
-        ✔ Create a dataset to be displayed in the graph @done(2017-12-05 21:39) @project(Charting)
-        ☐ Render the graph with a logarithmic scale
-        ☐ Buttons to toggle the time span of data
-        ☐ color?
+General:
+    Social Media
+        ☐ Reddit
+        ☐ Twitter
+        ☐ Facebook
+        ☐ Newsletter
+    Logo
+        ☐ Website Graphics
+        ☐ App Icon
+    Company Site
+        ☐ Register "mycryptomonitor.com"
+        ☐ Develop Website
+        ☐ SEO/Advertisment
 
-Dashboard:
-    Overview
-        ✔ Total Value @done(2017-12-02 21:37) @project(Dashboard)
-        ✔ Total Invested  @done(2017-12-02 21:37) @project(Dashboard)
-        ✔ Total Profit @done(2017-12-02 21:38) @project(Dashboard)
-        ☐ Rate of Increase over Time
-    Report
-        ☐ Date
-        ☐ Loss/Gain Today (Percentage/Dollar Ammount)
-        ☐ Loss/Gain Total (Percentage/Dollar Ammount)
-        ☐ Changes Per Coin (Percentage/Dollar Ammount)
-    Trends
-        ☐ Growing Coins
-        ☐ What's Gaining Traction
-    News
-        ☐ Reddit Feed (Upvote)
-        ☐ Coin News in General
-        ☐ RSS Feed Style
+Funtionality:
     Charting
-        ☐ Determine Price Range
-        ☐ Allow Time Period Changing
-        ☐ Graph Data
-
-Charts:
-    ☐ Per Crypto Charts
-    ☐ Sortable By Data (API Allowing)
-    ☐ Show Income/Coin Graph
-
-News Feed:
-    ☐ Reddit Feed (Upvote--)
-    ☐ News in General
-
-Reports:
-    ☐ Reports By Date (API Allowing)
-    ☐ Same as Dashboard Today Reports
-
-Settings:
-    ☐ Name
-    ☐ Email
-    ☐ Password Changing
-    ☐ Coin Manager
-    ☐ Theming
-
-Keep In Mind:
-    Databases
-        ☐ Login Service
-        ☐ CoinDB with User Coin Preferences
-    Graphic Assets
-        ☐ Logo
-        ☐ GP/AS Images
-        ☐ Icon
-        ☐ Generate a color for the graph line
-    API
-        ☐ Coinbase API
-    Payment Processing
-        ☐ Online Payments
-    Refferal Program
+        Single Line Charts
+            ✔ Make a public function that takes the cryptocurrency being graphed @done(2017-12-04 20:51) @project(Charting)
+            ✔ Call the api for historical data of the crypto @done(2017-12-04 20:51) @project(Charting)
+            ✔ Create a dataset to be displayed in the graph @done(2017-12-05 21:39) @project(Charting)
+            ✔ Render the graph with a linear scale @done(2017-12-05 22:10) @project(Funtionality)
+            ☐ Buttons to toggle the time span of data
+            ☐ Time Span Parameter
+            ☐ Color?
+        Multi Linke Charts
+            ☐ Render Logarthmic Scale
+            ☐ Responsively Display Multiple Lines
+            ☐ Color?
+    Reports
+        ☐ ????
+        ☐ ????
+        ☐ ????
+    News
+        ☐ ????
+        ☐ ????
+        ☐ ????
+    Trends
+        ☐ ????
+        ☐ ????
+        ☐ ????
+    Referral Program
         ☐ Referral By Email
     Search
         ☐ Search for Coin
-        ☐ Report of Coin for Day
     Alerts
-        ☐ Link to Chart for Changing Coin
+        ☐ Alert for Coin Change Price
+
+Front-end:
+    Dashboard
+        ☐ ????
+        ☐ ????
+        ☐ ????
+    Reports
+        ☐ ????
+        ☐ ????
+        ☐ ????
+    Charts
+        ☐ ????
+        ☐ ????
+        ☐ ????
+    News
+        ☐ ????
+        ☐ ????
+        ☐ ????
+    Trends
+        ☐ ????
+        ☐ ????
+        ☐ ????
+    Settings
+        ☐ Name
+        ☐ Email
+        ☐ Password Changing
+        ☐ Coin Manager
+        ☐ Theming
+
+Backend:
+    ☐ Authentication Service
+    ☐ Database (User Information)
+    ☐ Payment Service (Subscription $10/$25/$60)
