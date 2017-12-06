@@ -25,6 +25,7 @@ app.controller("DashboardCtrl", function($scope, $http) {
         $scope.marketData = data;
         calcInvestmentTotals();
         drawInvestmentChart();
+        drawChart("LTC");
     })
     .error(function() {
         alert("Something went wrong with CoinMarketCap's API! :(");
@@ -54,44 +55,52 @@ app.controller("DashboardCtrl", function($scope, $http) {
         $scope.totalProfit = $scope.totalProfit.toLocaleString();
     }
 
-    function drawInvestmentChart() {
-        console.log("madeithere");
-        var ctx = document.getElementById("chartInvestmentTotals").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
+    function drawChart(cryptoSym) {
+        // GET HISTORICAL DATA FOR CYPTO
+        var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=30";
+
+        $http.get(url)
+        .success(function(data) {
+            var graphLabel = cryptoSym;
+            var graphDates = [];
+            var graphData = [];
+
+            for (i = 0; i < data.Data.length; i++) {
+                var _date = new Date(data.Data[i].time * 1000);
+                var _date = (_date.getMonth() + 1) + "/" + _date.getDate();
+                graphDates.push(_date);
+
+                var _data = data.Data[i].close;
+                graphData.push(_data);
             }
-        });
+
+            var ctx = document.getElementById("chartInvestmentTotals").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: graphDates,
+                    datasets: [{
+                        label: graphLabel,
+                        data: graphData,
+                        fill: false,
+                        borderColor: 'rgba(30, 124, 225, 1)',
+                        borderWidth: 3,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        })
+        .error(function() {
+            alert("Something went wrong with CoinMarketCap's API! :(");
+        })
     }
 });

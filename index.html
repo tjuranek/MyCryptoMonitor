@@ -10,6 +10,7 @@
 
     <!-- Custom CSS -->
     <link href="css/default.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
 </head>
 
 <body ng-app="MyCryptoMonitor" ng-controller="DashboardCtrl" class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -40,12 +41,12 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="card mb-3">
+                    <div id="chartInvestmentTotalsContainer" class="card mb-3">
                         <div class="card-header">
                             <i class="fa fa-area-chart"></i> Investment Values over Time
                         </div>
                         <div class="card-body">
-                            <canvas id="chartInvestmentTotals" width="100%" height="30"></canvas>
+                            <canvas id="chartInvestmentTotals" width="100%" height="50vh"></canvas>
                         </div>
                         <div class="card-footer small text-muted">
                             Updated yesterday at 11:59 PM
