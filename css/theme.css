@@ -1,0 +1,17 @@
+.bg-dark {
+    background-color: #2C2C2E !important;
+}
+
+.card {
+    background-color: #2c2c2e;
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #FD6A34;
+}
+
+.sticky-footer {
+    background-color: #1A1C1B !important;
+    color: #ffffff;
+}

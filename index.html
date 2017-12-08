@@ -11,6 +11,7 @@
     <!-- Custom CSS -->
     <link href="css/default.css" rel="stylesheet">
     <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
 </head>
 
 <body ng-app="MyCryptoMonitor" ng-controller="DashboardCtrl" class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -23,33 +24,43 @@
                 <div class="col-lg-4">
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-area-chart"></i> Investment Totals
+                            <i class="fa fa-area-chart"></i> Total Crypto Value
                         </div>
                         <div class="card-body">
-                            <h4>Total Crypto Value</h4>
                             <p>${{totalValue}}</p>
-
-                            <h4>Total Invested</h4>
-                            <p>${{totalInvested}}</p>
-
-                            <h4>Total Profit</h4>
-                            <p>${{totalProfit}}</p>
-                        </div>
-                        <div class="card-footer small text-muted">
-                            Updated yesterday at 11:59 PM
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-4">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-area-chart"></i> Total Invested
+                        </div>
+                        <div class="card-body">
+                            <p>${{totalInvested}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-area-chart"></i> Total Profit
+                        </div>
+                        <div class="card-body">
+                            <p>${{totalProfit}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
                     <div id="chartInvestmentTotalsContainer" class="card mb-3">
                         <div class="card-header">
                             <i class="fa fa-area-chart"></i> Investment Values over Time
                         </div>
                         <div class="card-body">
-                            <canvas id="chartInvestmentTotals" width="100%" height="50vh"></canvas>
-                        </div>
-                        <div class="card-footer small text-muted">
-                            Updated yesterday at 11:59 PM
+                            <canvas id="chartInvestmentTotals" width="100%" height="35%"></canvas>
                         </div>
                     </div>
                 </div>
@@ -89,7 +100,7 @@
         <footer class="sticky-footer">
             <div class="container">
                 <div class="text-center">
-                    <small>Copyright © Thomas Juranek 2017</small>
+                    <small>Copyright MyCryptoMonitor 2017</small>
                 </div>
             </div>
         </footer>

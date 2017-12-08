@@ -8,15 +8,15 @@ app.controller("DashboardCtrl", function($scope, $http) {
         email: "imanerd@email.com",
         currencies: [{
             id: "bitcoin",
-            amount: 1
+            amount: .0009
         }, {
             id: "ethereum",
-            amount: 1
+            amount: 0
         }, {
             id: "litecoin",
             amount: 1
         }],
-        invested: 5025.05
+        invested: 103.07
     }
 
     // COINMARKETCAP TOTAL MARKET API CALL
@@ -25,7 +25,7 @@ app.controller("DashboardCtrl", function($scope, $http) {
         $scope.marketData = data;
         calcInvestmentTotals();
         //drawInvestmentChart();
-        drawChart("ARK");
+        drawChart("BTC");
     })
     .error(function() {
         alert("Something went wrong with CoinMarketCap's API! :(");
@@ -57,7 +57,7 @@ app.controller("DashboardCtrl", function($scope, $http) {
 
     function drawChart(cryptoSym) {
         // GET HISTORICAL DATA FOR CYPTO
-        var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=6";
+        var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=365";
 
         $http.get(url)
         .success(function(data) {
