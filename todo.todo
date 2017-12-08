@@ -77,3 +77,6 @@ Backend:
     ☐ Authentication Service
     ☐ Database (User Information)
     ☐ Payment Service (Subscription $10/$25/$60)
+
+Note:
+    ☐ "just fyi if you actually want to charge money for this, you should pipe the API calls through your servers so people can't just save this HTML and then not pay you any more money"

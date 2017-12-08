@@ -24,7 +24,7 @@
                 <div class="col-lg-4">
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fa fa-area-chart"></i> Total Crypto Value
+                            Total Crypto Value
                         </div>
                         <div class="card-body">
                             <p>${{totalValue}}</p>
@@ -68,30 +68,37 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Name</th>
-                                    <th>Symbol</th>
-                                    <th>Price (USD)</th>
-                                    <th>Price (BTC)</th>
-                                    <th>Change (24hs)</th>
-                                </tr>
-                            </thead>
+                    <div id="chartInvestmentTotalsContainer" class="card mb-3">
+                        <div class="card-header">
+                            <i class="fa fa-area-chart"></i> Top 10 Crypto Today
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>Name</th>
+                                            <th>Symbol</th>
+                                            <th>Price (USD)</th>
+                                            <th>Price (BTC)</th>
+                                            <th>Change (24hs)</th>
+                                        </tr>
+                                    </thead>
 
-                            <tbody>
-                                <tr ng-repeat="obj in marketData | limitTo:10">
-                                    <td>{{obj.rank}}</td>
-                                    <td>{{obj.name}}</td>
-                                    <td>{{obj.symbol}}</td>
-                                    <td>{{obj.price_usd}}</td>
-                                    <td>{{obj.price_btc}}</td>
-                                    <td>{{obj.percent_change_24h}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tbody>
+                                        <tr ng-repeat="obj in marketData | limitTo:10">
+                                            <td>{{obj.rank}}</td>
+                                            <td>{{obj.name}}</td>
+                                            <td>{{obj.symbol}}</td>
+                                            <td>{{obj.price_usd}}</td>
+                                            <td>{{obj.price_btc}}</td>
+                                            <td>{{obj.percent_change_24h}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
