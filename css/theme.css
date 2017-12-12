@@ -7,7 +7,14 @@
     color: #ffffff;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/*
+.colored-header {
+    color: #FD6A34;
+}
+*/
+
+.large-number {
+    font-size: 26px;
     color: #FD6A34;
 }
 

@@ -11,6 +11,8 @@ General:
         ☐ Register "mycryptomonitor.com"
         ☐ Develop Website
         ☐ SEO/Advertisment
+    Update All Coin Data
+        ☐ Check if all coin current price call is on min-api url (cross orgin requests)
 
 Funtionality:
     Charting
