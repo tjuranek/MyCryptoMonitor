@@ -26,3 +26,24 @@
 .card-header {
     font-size: 20px !important;
 }
+
+.row-portfolio {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50vh;
+}
+
+.card-portfolio {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+
+.card-porfolio {
+    height: 500vh !important;
+}
+*/
