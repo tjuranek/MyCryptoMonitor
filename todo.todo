@@ -5,13 +5,16 @@ General:
         ☐ Facebook
         ☐ Newsletter
         ☐ Medium
+
     Logo
         ☐ Website Graphics
         ☐ App Icon
+
     Company Site
         ☐ Register "mycryptomonitor.com"
         ☐ Develop Website
         ☐ SEO/Advertisment
+
     Update All Coin Data
         ☐ Check if all coin current price call is on min-api url (cross orgin requests)
 
@@ -24,50 +27,64 @@ Funtionality:
             ✔ Render the graph with a linear scale @done(2017-12-05 22:10) @project(Funtionality)
             ☐ Buttons to toggle the time span of data
             ☐ Time Span Parameter
-            ☐ Color?
-        Multi Linke Charts
-            ☐ Render Logarthmic Scale
-            ☐ Responsively Display Multiple Lines
-            ☐ Color?
+        Pie Charts
+            ☐ Limiting Data
+            ☐ Toggle Data Value (Total Worth/Coin Amount)
+
     Reports
-        ☐ ????
-        ☐ ????
-        ☐ ????
+        ☐ Date
+        ☐ Totals
+        ☐ Summary
+        Per Coin
+            ☐ Name
+            ☐ Symbol
+            ☐ Price
+            ☐ Total
+            ☐ Change
+            ☐ Market Cap
+            ☐ 24 Hour Volume
+            ☐ 1 Day Mini Graph
+
     News
-        ☐ ????
-        ☐ ????
-        ☐ ????
-    Trends
-        ☐ ????
-        ☐ ????
-        ☐ ????
+        ☐ Reddit API
+        ☐ Other Site Articles
+
     Referral Program
         ☐ Referral By Email
+
     Search
         ☐ Search for Coin
+        ☐ Render Chart Page of Coin
+
     Alerts
         ☐ Alert for Coin Change Price
+        ☐ Push Notifications
 
 Front-end:
     Dashboard
-        ☐ Loading Spinner
-        ☐ ????
+        ☐ Portfolio
+        ☐ Report
+
     Reports
-        ☐ ????
-        ☐ ????
-        ☐ ????
+        ☐ Date Picker
+        ☐ Compare Two Reports
+        ☐ Dashboard Report
+
     Charts
-        ☐ ????
-        ☐ ????
-        ☐ ????
+        ☐ Coin Picker (Search Bar)
+        ☐ Comare Two Coins
+        ☐ Dashboard Graphs
+
     News
-        ☐ ????
-        ☐ ????
-        ☐ ????
-    Trends
-        ☐ ????
-        ☐ ????
-        ☐ ????
+        ☐ List of Articles
+        ☐ Feedback of Source
+        Article
+            ☐ Title
+            ☐ Author
+            ☐ Link
+            ☐ Description
+            ☐ Date
+
     Settings
         ☐ Name
         ☐ Email
@@ -78,7 +95,7 @@ Front-end:
 Backend:
     ☐ Authentication Service
     ☐ Database (User Information)
-    ☐ Payment Service (Subscription $10/$25/$60)
+    ☐ Payment Service (Subscription $10/$25/$60) Stripe
 
 Note:
     ☐ "just fyi if you actually want to charge money for this, you should pipe the API calls through your servers so people can't just save this HTML and then not pay you any more money"

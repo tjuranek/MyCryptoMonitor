@@ -83,7 +83,39 @@
                             Daily Report
                         </div>
                         <div class="card-body">
-                            This is crypto, you're fine.
+                            <p><b>Date:</b> 12/20/2017</p>
+                            <p><b>Net Value:</b> ${{totalValue}} ( + $385.22)</p>
+                            <p><b>Summary:</b> Spicy jalapeno bacon ipsum dolor amet ball tip turkey landjaeger ham hock bresaola swine pastrami shankle. Kielbasa capicola chuck burgdoggen doner rump turducken brisket ham bacon buffalo bresaola. Filet mignon
+                                ribeye tenderloin, hamburger porchetta pork belly beef. Bresaola chicken beef, hamburger turkey shankle tongue.</p>
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Symbol</th>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col">Value / Coin</th>
+                                        <th scope="col">Value / Total</th>
+                                        <th scope="col">Change</th>
+                                        <th scope="col">Market Cap</th>
+                                        <th scope="col">24 Hour Volume</th>
+                                        <th scope="col">Graph (1 Day)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in marketData | limitTo: 5">
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.id}}</td>
+                                        <td>#{{item.rank}}</td>
+                                        <td>{{item.price_usd}}</td>
+                                        <td>{{item.price_btc}}</td>
+                                        <td>{{item.percent_change_24h}}%</td>
+                                        <td>{{item.market_cap_usd}}</td>
+                                        <td>ok</td>
+                                        <td>graph</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
