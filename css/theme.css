@@ -7,12 +7,6 @@
     color: #ffffff;
 }
 
-/*
-.colored-header {
-    color: #FD6A34;
-}
-*/
-
 .large-number {
     font-size: 26px;
     color: #FD6A34;
@@ -27,23 +21,7 @@
     font-size: 20px !important;
 }
 
-.row-portfolio {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    height: 50vh;
+.card-list-item {
+    background-color: #2c2c2e;
+    border-color: #ffffff;
 }
-
-.card-portfolio {
-    display: flex;
-    flex-direction: column;
-}
-
-/*
-
-.card-porfolio {
-    height: 500vh !important;
-}
-*/
