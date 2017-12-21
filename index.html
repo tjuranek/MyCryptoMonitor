@@ -16,7 +16,7 @@
 
 <body ng-app="MyCryptoMonitor" ng-controller="DashboardCtrl" class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation -->
-    <div ng-include="'nav.html'"></div>
+    <div ng-include src="'navigation.html'"></div>
 
     <!-- Content -->
     <div class="content-wrapper">
@@ -91,27 +91,23 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Symbol</th>
                                         <th scope="col">Rank</th>
-                                        <th scope="col">Value / Coin</th>
-                                        <th scope="col">Value / Total</th>
-                                        <th scope="col">Change</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Value - Coin</th>
+                                        <th scope="col">Value - Owned</th>
+                                        <th scope="col">Change (24hr)</th>
                                         <th scope="col">Market Cap</th>
-                                        <th scope="col">24 Hour Volume</th>
-                                        <th scope="col">Graph (1 Day)</th>
+                                        <th scope="col">Graph (24hr)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="item in marketData | limitTo: 5">
-                                        <td>{{item.name}}</td>
-                                        <td>{{item.id}}</td>
                                         <td>#{{item.rank}}</td>
-                                        <td>{{item.price_usd}}</td>
-                                        <td>{{item.price_btc}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>${{item.price_usd}}</td>
+                                        <td>${{item.price_usd}}</td>
                                         <td>{{item.percent_change_24h}}%</td>
-                                        <td>{{item.market_cap_usd}}</td>
-                                        <td>ok</td>
+                                        <td>${{item.market_cap_usd}}</td>
                                         <td>graph</td>
                                     </tr>
                                 </tbody>
