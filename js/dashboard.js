@@ -1,6 +1,6 @@
-var app = angular.module("MyCryptoMonitor", []);
+angular.module('MCM.dashboard', [])
 
-app.controller("DashboardCtrl", function($scope, $http) {
+.controller('DashboardCtrl', function($scope, $http) {
     // TEST USER
     $scope.user = {
         id: 0,

@@ -1,0 +1,1 @@
+angular.module('MyCryptoMonitor', ['MCM.dashboard', 'MCM.charts']);
