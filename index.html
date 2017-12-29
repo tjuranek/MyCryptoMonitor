@@ -66,9 +66,21 @@
                                 Portfolio - Value per Crypto
                             </div>
                             <div class="card-body">
+                                <div class="list-group">
+                                    <a ng-repeat="item in userCurrencyData" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">{{item.name}}</h5>
+                                            <small>{{item.symbol}}</small>
+                                        </div>
+                                        <p class="mb-1">${{item.price_usd}} | {{item.percent_change_24h}}% (24hr)</p>
+                                        <small>From CoinMarketCap</small>
+                                    </a>   
+                                </div>     
+                                <!--
                                 <ul class="list-group card-list">
-                                    <li class="list-group-item card-list-item" ng-repeat="item in user.currencies | limitTo: 6">{{item.id}}</li>
+                                    <li class="list-group-item card-list-item" ng-repeat="item in userCurrencyData">{{item.name}} | ${{item.price_usd}} | {{item.percent_change_24h}}% (24hr)</li>
                                 </ul>
+                            -->
                             </div>
                         </div>
                     </div>
@@ -83,11 +95,9 @@
                             Daily Report
                         </div>
                         <div class="card-body">
-                            <p><b>Date:</b> 12/20/2017</p>
-                            <p><b>Net Value:</b> ${{totalValue}} ( + $385.22)</p>
-                            <p><b>Summary:</b> Spicy jalapeno bacon ipsum dolor amet ball tip turkey landjaeger ham hock bresaola swine pastrami shankle. Kielbasa capicola chuck burgdoggen doner rump turducken brisket ham bacon buffalo bresaola. Filet mignon
-                                ribeye tenderloin, hamburger porchetta pork belly beef. Bresaola chicken beef, hamburger turkey shankle tongue.</p>
-
+                            <p><b>Date:</b> {{date}}</p>
+                            <p><b>Net Value:</b> ${{totalValue}}</p>
+                            
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -101,7 +111,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="item in marketData | limitTo: 5">
+                                    <tr ng-repeat="item in userCurrencyData">
                                         <td>#{{item.rank}}</td>
                                         <td>{{item.name}}</td>
                                         <td>${{item.price_usd}}</td>
@@ -118,7 +128,7 @@
             </div>
         </div>
 
-
+        <!-- Footer -->
         <footer class="sticky-footer">
             <div class="container">
                 <div class="text-center">

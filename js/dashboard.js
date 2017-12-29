@@ -7,40 +7,50 @@ app.controller("DashboardCtrl", function($scope, $http) {
         name: "Thomas Juranek",
         email: "thomas@juranek.com",
         currencies: [{
-            id: "bitcoin",
-            amount: .3
-        }, {
-            id: "ethereum",
-            amount: 4
-        }, {
             id: "litecoin",
-            amount: 6.9
+            amount: 2
         }, {
-            id: "stratis",
-            amount: 200
+            id: "iota",
+            amount: 40.214
         }, {
-
             id: "raiblocks",
-            amount: 700
+            amount: 6.702
         }, {
             id: "ripple",
-            amount: 2800
+            amount: 53.76
         }],
-        invested: 510.61
+        invested: 650.78
     }
 
     // COINMARKETCAP TOTAL MARKET API CALL
     $http.get("https://api.coinmarketcap.com/v1/ticker/")
         .success(function(data) {
             $scope.marketData = data;
+
+            findUserCurrencyData();
             calcInvestmentTotals();
-            drawChart("LTC");
             drawDoughnutChart();
+            generateDailyReport();
         })
         .error(function() {
             alert("Something went wrong with CoinMarketCap's API! :(");
         })
 
+    
+    function findUserCurrencyData() {
+        $scope.userCurrencyData = [];
+
+        // CALCULATE EXACT AND DISPLAY VALUES
+        for (var a = 0; a < $scope.user.currencies.length; a++) {
+            var searchTerm = $scope.user.currencies[a].id;
+            for (var b = 0; b < $scope.marketData.length; b++) {
+                if ($scope.marketData[b].id == searchTerm) {
+                    $scope.userCurrencyData.push($scope.marketData[b]);
+                }
+            }
+        }
+    }
+    
     function calcInvestmentTotals() {
         $scope.exactValue = 0;
         $scope.totalInvested = $scope.user.invested;
@@ -62,56 +72,7 @@ app.controller("DashboardCtrl", function($scope, $http) {
         $scope.totalProfit = $scope.exactValue - $scope.totalInvested;
         $scope.totalProfit = Math.round($scope.totalProfit * 100) / 100;
         $scope.totalProfit = $scope.totalProfit.toLocaleString();
-    }
-
-    function drawChart(cryptoSym) {
-        // GET HISTORICAL DATA FOR CYPTO
-        var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=30";
-
-        $http.get(url)
-            .success(function(data) {
-                var graphLabel = cryptoSym;
-                var graphDates = [];
-                var graphData = [];
-
-                for (i = 0; i < data.Data.length; i++) {
-                    var _date = new Date(data.Data[i].time * 1000);
-                    var _date = (_date.getMonth() + 1) + "/" + _date.getDate();
-                    graphDates.push(_date);
-
-                    var _data = data.Data[i].close;
-                    graphData.push(_data);
-                }
-
-                var ctx = document.getElementById("chartInvestmentTotals").getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: graphDates,
-                        datasets: [{
-                            label: graphLabel,
-                            data: graphData,
-                            fill: false,
-                            borderColor: 'rgba(30, 124, 225, 1)',
-                            borderWidth: 3,
-                            pointRadius: 0
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
-                });
-            })
-            .error(function() {
-                alert("Something went wrong with CoinMarketCap's API! :(");
-            })
-    }
+    }   
 
     function drawDoughnutChart() {
         var graphColors = ["#F05D0D", "#41B8A4", "#A1C339", "#31BC59", "#BCBCBE", "#E8070D"];
@@ -147,12 +108,8 @@ app.controller("DashboardCtrl", function($scope, $http) {
         });
     }
 
-    function generateColor() {
-        var letters = '0123456789ABCDEF'.split('');
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.round(Math.random() * 15)];
-        }
-        return color;
+    function generateDailyReport() {
+        var today = new Date();
+        $scope.date =  (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
     }
 });

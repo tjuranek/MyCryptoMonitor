@@ -1,102 +1,83 @@
-General:
-    Social Media
+Project: 
+    ☐ hire a graphic designer for logo and icon
+    ☐ reigster "mycryptomonitor.com"
+    ☐ prepare beta and promotional materials
+    ☐ start designing company website
+    ☐ design referal program 
+    ☐ design notification system
+    
+Programming:
+    General:
+        ☐ check in on min-api cryptocomare requests
+        ☐ basic seo
+        ☐ https://files.coinmarketcap.com/static/img/coins/64x64/litecoin.png
+
+    UI:
+        Dashboard:
+            ☐ responsive design
+            ☐ value per crypto section
+            ☐ enhance the numbers, add more
+            ☐ enhance the graph to be more descriptive
+            ☐ finish the daily report section
+            ☐ refactor investment totals function
+
+        Reports:
+            ☐ date picker
+            ☐ implement reports
+            ☐ compare two reports from date selection
+
+        Charts:
+            ☐ coin picker
+            ☐ implement coin graph
+            ☐ create coin summary
+            ☐ compare two coin summaries
+
+        News:
+            ☐ determine if this is worth implementing
+
+        Settings:
+            ☐ name
+            ☐ email
+            ☐ password changing
+            ☐ coin preferences
+            ☐ theming (light/dark)
+            ☐ currency (usd/btc)
+
+    Functionality:
+        Charting:
+            Line Charts:
+                ☐ buttons to toggle time span
+                ☐ graph function 
+            Pie Charts:
+                ☐ limiting data
+                ☐ buttons to toggle time span 
+
+        Reports:
+            ☐ graphs in the table
+            ☐ update table data
+            ☐ finish styling
+            ☐ add customization features
+
+        Search:
+            ☐ implement a coin search 
+            ☐ load chart page for searched coin 
+
+    Backend:
+        ☐ look into auth0 for authentication 
+        ☐ search for potential database solutions
+        ☐ look into stripe as a payment service 
+
+Marketing:
+    Social Media:
         ☐ Reddit
         ☐ Twitter
         ☐ Facebook
         ☐ Newsletter
-        ☐ Medium
+        ☐ Medium 
 
-    Logo
-        ☐ Website Graphics
-        ☐ App Icon
-
-    Company Site
-        ☐ Register "mycryptomonitor.com"
-        ☐ Develop Website
-        ☐ SEO/Advertisment
-
-    Update All Coin Data
-        ☐ Check if all coin current price call is on min-api url (cross orgin requests)
-
-Funtionality:
-    Charting
-        Single Line Charts
-            ✔ Make a public function that takes the cryptocurrency being graphed @done(2017-12-04 20:51) @project(Charting)
-            ✔ Call the api for historical data of the crypto @done(2017-12-04 20:51) @project(Charting)
-            ✔ Create a dataset to be displayed in the graph @done(2017-12-05 21:39) @project(Charting)
-            ✔ Render the graph with a linear scale @done(2017-12-05 22:10) @project(Funtionality)
-            ☐ Buttons to toggle the time span of data
-            ☐ Time Span Parameter
-        Pie Charts
-            ☐ Limiting Data
-            ☐ Toggle Data Value (Total Worth/Coin Amount)
-
-    Reports
-        ☐ Date
-        ☐ Totals
-        ☐ Summary
-        Per Coin
-            ☐ Name
-            ☐ Symbol
-            ☐ Price
-            ☐ Total
-            ☐ Change
-            ☐ Market Cap
-            ☐ 24 Hour Volume
-            ☐ 1 Day Mini Graph
-
-    News
-        ☐ Reddit API
-        ☐ Other Site Articles
-
-    Referral Program
-        ☐ Referral By Email
-
-    Search
-        ☐ Search for Coin
-        ☐ Render Chart Page of Coin
-
-    Alerts
-        ☐ Alert for Coin Change Price
-        ☐ Push Notifications
-
-Front-end:
-    Dashboard
-        ☐ Portfolio
-        ☐ Report
-
-    Reports
-        ☐ Date Picker
-        ☐ Compare Two Reports
-        ☐ Dashboard Report
-
-    Charts
-        ☐ Coin Picker (Search Bar)
-        ☐ Comare Two Coins
-        ☐ Dashboard Graphs
-
-    News
-        ☐ List of Articles
-        ☐ Feedback of Source
-        Article
-            ☐ Title
-            ☐ Author
-            ☐ Link
-            ☐ Description
-            ☐ Date
-
-    Settings
-        ☐ Name
-        ☐ Email
-        ☐ Password Changing
-        ☐ Coin Manager
-        ☐ Theming
-        ☐ USD/BTC Preference
-
-Backend:
-    ☐ Authentication Service
-    ☐ Database (User Information)
-    ☐ Payment Service (Subscription $10/$25/$60) Stripe
-
-Note:
-    ☐ "just fyi if you actually want to charge money for this, you should pipe the API calls through your servers so people can't just save this HTML and then not pay you any more money"
+    Partners (Beta Testers):
+        ☐ feature requests
+        ☐ error reporting
+        ☐ changes necessary
+        ☐ input
+        ☐ direct contact between me and users
