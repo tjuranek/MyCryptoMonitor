@@ -1,3 +1,19 @@
-#chartInvestmentTotalsContainer {
-    height: 70vh;
+.dash-card {
+    background-color: #2c2c2e;
+    border-radius: 4px;
+    height: 100%;
+}
+
+.dash-number-value {
+    color: #41B8A4;
+    font-size: 28px;
+}
+
+.dash-number-description {
+    color: #BCBCBE;
+    font-size: 16px;
+}
+
+hr {
+    border-color: #ffffff;
 }

@@ -5,7 +5,7 @@ angular.module('MCM.charts', [])
 
     function drawChart(cryptoSym) {
         // GET HISTORICAL DATA FOR CYPTO
-        var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=30";
+        var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=6";
 
         $http.get(url)
             .success(function(data) {
