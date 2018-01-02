@@ -16,9 +16,9 @@ angular.module('MCM.user', [])
             amount: 0.0000855
         }, {
             id: "litecoin",
-            amount: 0.00931
+            amount: 2
         }],
-        invested: 510.61
+        invested: 110.61
     }
 
     return {
