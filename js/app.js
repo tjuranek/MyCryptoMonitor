@@ -1,1 +1,1 @@
-angular.module('MyCryptoMonitor', ['MCM.dashboard', 'MCM.charts']);
+angular.module('MyCryptoMonitor', ['MCM.data', 'MCM.graph', 'MCM.user', 'MCM.dashboard', 'MCM.charts']);

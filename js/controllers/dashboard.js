@@ -1,6 +1,7 @@
 angular.module('MCM.dashboard', [])
 
-.controller('DashboardCtrl', function($scope, $http) {
+.controller('DashboardCtrl', function($scope, $http, UserServ, DataServ, GraphServ) {
+    console.log(UserServ.user);
     // TEST USER
     $scope.user = {
         id: 0,
