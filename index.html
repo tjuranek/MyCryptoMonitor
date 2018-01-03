@@ -54,7 +54,7 @@
                         <div class="card-body">
                             <div class="dash-number-group">
                                 <div class="dash-number-value">
-                                    ${{totalValue}} 
+                                    ${{data.totalValue}} 
                                 </div>
                                 <div class="dash-number-description">
                                     Total Value
@@ -63,7 +63,7 @@
                             </div>
                             <div class="dash-number-group">
                                 <div class="dash-number-value">
-                                    ${{totalProfit}} 
+                                    ${{data.totalProfit}} 
                                 </div>
                                 <div class="dash-number-description">
                                     Total Profit
@@ -72,7 +72,7 @@
                             </div>
                             <div class="dash-number-group">
                                 <div class="dash-number-value">
-                                    ${{totalInvested}} 
+                                    ${{data.totalInvested}} 
                                 </div>
                                 <div class="dash-number-description">
                                     Total Invested
@@ -109,7 +109,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="item in userCurrencyData">
+                                    <tr ng-repeat="item in data.investmentData">
                                         <td>#{{item.rank}}</td>
                                         <td>{{item.name}}</td>
                                         <td>${{item.price_usd}}</td>

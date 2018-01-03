@@ -1,21 +1,30 @@
 angular.module('MCM.data', [])
 
-.service('DataFac', function(UserServ) {
+.service('DataServ', function($http, UserServ) {
     var marketData;
-    var investmentData;
+    var investmentData = [];
+
+    var totalInvested;
+    var totalValue;
+    var totalProfit;
 
     $http.get("https://api.coinmarketcap.com/v1/ticker/")
         .success(function(data) {
-            marketData = data;
-
-            calcInvestmentData();
+            calcInvestmentData(data);
         })
         .error(function() {
             alert("Error: Unable to attain data from coinmarketcap.com.");
         })
 
-    function calcInvestmentData() {
+    //console.log("out of call");
+    //console.log(marketData);
+
+    function calcInvestmentData(cmcData) {
         var user = UserServ.user;
+        //marketData = cmcData;
+        console.log(cmcData);
+
+        var exactValue;
 
         for (var a = 0; a < user.currencies.length; a++) {
             var searchTerm = user.currencies[a].id;
@@ -23,47 +32,29 @@ angular.module('MCM.data', [])
             for (var b = 0; b < marketData.length; b++) {
                 if (marketData[b].id == searchTerm) {
                     investmentData.push(marketData[b]);
+                    exactValue += user.currencies[a].amount * marketData[b].price_usd;
                 }
             }
         }
 
+        totalInvested = user.invested;
+
+        totalValue = Math.round(exactValue * 100) / 100;
+        totalValue = totalValue.toLocaleString();
+
+        totalProfit = Math.round((exactValue - totalInvested) * 100) / 100;
+        totalProfit = totalProfit.toLocaleString();
     }
 
-
-function findUserCurrencyData() {
-    $scope.userCurrencyData = [];
-
-    // CALCULATE EXACT AND DISPLAY VALUES
-    for (var a = 0; a < $scope.user.currencies.length; a++) {
-        var searchTerm = $scope.user.currencies[a].id;
-        for (var b = 0; b < $scope.marketData.length; b++) {
-            if ($scope.marketData[b].id == searchTerm) {
-                $scope.userCurrencyData.push($scope.marketData[b]);
-            }
-        }
+    var data = {
+        marketData: marketData,
+        investmentData: investmentData,
+        totalInvested: totalInvested,
+        totalValue: totalValue,
+        totalProfit: totalProfit
     }
-}
 
-function calcInvestmentTotals() {
-    $scope.exactValue = 0;
-    $scope.totalInvested = $scope.user.invested;
-    $scope.totalProfit = 0;
-
-    // CALCULATE EXACT AND DISPLAY VALUES
-    for (var a = 0; a < $scope.user.currencies.length; a++) {
-        var searchTerm = $scope.user.currencies[a].id;
-        for (var b = 0; b < $scope.marketData.length; b++) {
-            if ($scope.marketData[b].id == searchTerm) {
-                $scope.exactValue += $scope.user.currencies[a].amount * $scope.marketData[b].price_usd;
-            }
-        }
+    return {
+        'data': data
     }
-    $scope.totalValue = Math.round($scope.exactValue * 100) / 100;
-    $scope.totalValue = $scope.totalValue.toLocaleString();
-
-    // CALCULATE TOTAL PROFIT
-    $scope.totalProfit = $scope.exactValue - $scope.totalInvested;
-    $scope.totalProfit = Math.round($scope.totalProfit * 100) / 100;
-    $scope.totalProfit = $scope.totalProfit.toLocaleString();
-}
 });
