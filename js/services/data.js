@@ -1,30 +1,33 @@
 angular.module('MCM.data', [])
 
-.service('DataServ', function($http, UserServ) {
+.service('DataServ', function($http, $q, UserServ) {
+    var myData;
     var marketData;
     var investmentData = [];
 
-    var totalInvested;
-    var totalValue;
-    var totalProfit;
+    var totalInvested = 0;
+    var totalValue = 0;
+    var totalProfit = 0;
 
-    $http.get("https://api.coinmarketcap.com/v1/ticker/")
-        .success(function(data) {
-            calcInvestmentData(data);
-        })
-        .error(function() {
-            alert("Error: Unable to attain data from coinmarketcap.com.");
-        })
+    var getData = function() {
+        var def = $q.defer();
 
-    //console.log("out of call");
-    //console.log(marketData);
+        $http.get("https://api.coinmarketcap.com/v1/ticker/?limit=0")
+            .success(function(data) {
+                marketData = data;
+                calcInvestmentData();
+                def.resolve(data);
+            })
+            .error(function(data) {
+                def.reject("Failed to get data");
+            });
+        
+        return def.promise;
+    }
 
-    function calcInvestmentData(cmcData) {
+    function calcInvestmentData() {
         var user = UserServ.user;
-        //marketData = cmcData;
-        console.log(cmcData);
-
-        var exactValue;
+        var exactValue = 0;
 
         for (var a = 0; a < user.currencies.length; a++) {
             var searchTerm = user.currencies[a].id;
@@ -44,17 +47,18 @@ angular.module('MCM.data', [])
 
         totalProfit = Math.round((exactValue - totalInvested) * 100) / 100;
         totalProfit = totalProfit.toLocaleString();
-    }
 
-    var data = {
-        marketData: marketData,
-        investmentData: investmentData,
-        totalInvested: totalInvested,
-        totalValue: totalValue,
-        totalProfit: totalProfit
+        myData = {
+            marketData: marketData,
+            investmentData: investmentData,
+            totalInvested: totalInvested,
+            totalValue: totalValue,
+            totalProfit: totalProfit
+        }
     }
 
     return {
-        'data': data
+        'getData': getData,
+        'data': myData
     }
 });
