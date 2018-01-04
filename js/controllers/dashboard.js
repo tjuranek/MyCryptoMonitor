@@ -6,6 +6,7 @@ angular.module('MCM.dashboard', [])
     DataServ.getData()
     .then(function(returnData) {
         $scope.data = returnData.myData;
+        
         drawLineChart("BTC");
         drawDoughnutChart();
         generateDailyReport();

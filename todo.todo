@@ -1,25 +1,24 @@
 Project: 
-    ☐ hire a graphic designer for logo and icon
+    ✔ hire a graphic designer for logo and icon @done (1/4/2018, 3:34:25 PM)
     ☐ reigster "mycryptomonitor.com"
-    ☐ prepare beta and promotional materials
+    ✔ prepare beta and promotional materials @done (1/4/2018, 3:32:24 PM)
     ☐ start designing company website
     ☐ design referal program 
     ☐ design notification system
     
 Programming:
     General:
-        ☐ check in on min-api cryptocomare requests
+        ✔ check in on min-api cryptocomare requests @done (1/4/2018, 3:32:30 PM)
         ☐ basic seo
         ☐ highlight currenct navigation page
-        ☐ https://files.coinmarketcap.com/static/img/coins/64x64/litecoin.png
 
     UI:
         Dashboard:
             ☐ responsive design
-            ☐ value per crypto section
-            ☐ enhance the numbers, add more
+            ✔ value per crypto section @done (1/4/2018, 3:32:41 PM)
+            ✔ enhance the numbers, add more @done (1/4/2018, 3:32:43 PM)
             ☐ enhance the graph to be more descriptive
-            ☐ finish the daily report section
+            ✔ finish the daily report section @done (1/4/2018, 3:32:48 PM)
             ☐ refactor investment totals function
 
         Reports:
@@ -41,27 +40,27 @@ Programming:
             ☐ email
             ☐ password changing
             ☐ coin preferences
-            ☐ theming (light/dark)
+            ✔ theming (light/dark) @done (1/4/2018, 3:34:44 PM)
             ☐ currency (usd/btc)
 
     Functionality:
         Charting:
             Line Charts:
                 ☐ buttons to toggle time span
-                ☐ graph function 
+                ✔ graph function @done (1/4/2018, 3:33:43 PM)
             Pie Charts:
-                ☐ limiting data
-                ☐ buttons to toggle time span 
+                ✔ limiting data @done (1/4/2018, 3:34:54 PM)
+                ✔ buttons to toggle time span @done (1/4/2018, 3:34:59 PM)
 
         Reports:
             ☐ graphs in the table
-            ☐ update table data
+            ✔ update table data @done (1/4/2018, 3:35:05 PM)
             ☐ finish styling
-            ☐ add customization features
+            ✔ add customization features @done (1/4/2018, 3:35:11 PM)
 
         Search:
             ☐ implement a coin search 
-            ☐ load chart page for searched coin 
+            ☐ load chart page for searched coin
 
     Backend:
         ☐ look into auth0 for authentication 
@@ -70,15 +69,14 @@ Programming:
 
 Marketing:
     Social Media:
-        ☐ Reddit
+        ✔ Discord @done (1/4/2018, 3:35:27 PM)
         ☐ Twitter
         ☐ Facebook
-        ☐ Newsletter
         ☐ Medium 
 
     Partners (Beta Testers):
-        ☐ feature requests
-        ☐ error reporting
-        ☐ changes necessary
-        ☐ input
-        ☐ direct contact between me and users
+        ✔ feature requests @done (1/4/2018, 3:35:41 PM)
+        ✔ error reporting @done (1/4/2018, 3:35:42 PM)
+        ✔ changes necessary @done (1/4/2018, 3:35:43 PM)
+        ✔ input @done (1/4/2018, 3:35:44 PM)
+        ✔ direct contact between me and users @done (1/4/2018, 3:35:45 PM)
