@@ -10,19 +10,23 @@ angular.module('MCM.data', [])
     var totalProfit = 0;
 
     var getData = function() {
-        var def = $q.defer();
+        console.log("just ran getData in the service");
 
-        $http.get("https://api.coinmarketcap.com/v1/ticker/?limit=0")
-            .success(function(data) {
-                marketData = data;
+        return $http.get("https://api.coinmarketcap.com/v1/ticker/?limit=0")
+            .then(function(data) {
+                console.log("just ran the then function in the service");
+                marketData = data.data;
+                console.log("marketdata");
+                console.log(marketData);
                 calcInvestmentData();
-                def.resolve(data);
-            })
-            .error(function(data) {
-                def.reject("Failed to get data");
+
+                console.log("this is mydata after it runs calcInvestmentData():");
+                console.log(myData);
+
+                return {
+                    myData
+                }
             });
-        
-        return def.promise;
     }
 
     function calcInvestmentData() {
@@ -58,7 +62,6 @@ angular.module('MCM.data', [])
     }
 
     return {
-        'getData': getData,
-        'data': myData
+        'getData': getData
     }
 });
