@@ -7,18 +7,15 @@ angular.module('MCM.user', [])
         email: "thomas@juranek.com",
         currencies: [{
             id: "raiblocks",
-            amount: 15.26948665
+            amount: 5
         }, {
-            id: "tron",
-            amount: 2305.692
+            id: "walton",
+            amount: 17.982
         }, {
-            id: "bitcoin",
-            amount: 0.0000855
-        }, {
-            id: "litecoin",
-            amount: 0.00931
+            id: "cardano",
+            amount: 217.68
         }],
-        invested: 110.61
+        invested: 510.61
     }
 
     return {
