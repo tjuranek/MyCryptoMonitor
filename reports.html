@@ -14,23 +14,58 @@
     <link href="css/theme.css" rel="stylesheet">
 </head>
 
-<body ng-app="MyCryptoMonitor" ng-controller="DashboardCtrl" class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body ng-app="MyCryptoMonitor" ng-controller="ReportsCtrl" class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation -->
-    <div ng-include="'navigation.html'"></div>
+    <div ng-include src="'navigation.html'"></div>
 
+    <!-- Content -->
     <div class="content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Reports</h2>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Daily Report
+                        </div>
+                        <div class="card-body">
+                            <p><b>Date:</b> {{date}}</p>
+                            <p><b>Net Value:</b> ${{data.totalValue}}</p>
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Value - Coin</th>
+                                        <th scope="col">Value - Owned</th>
+                                        <th scope="col">Change (24hr)</th>
+                                        <th scope="col">Market Cap</th>
+                                        <th scope="col">Graph (24hr)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in data.investmentData">
+                                        <td>#{{item.rank}}</td>
+                                        <td>{{item.name}}</td>
+                                        <td>${{item.price_usd}}</td>
+                                        <td>${{item.price_usd}}</td>
+                                        <td>{{item.percent_change_24h}}%</td>
+                                        <td>${{item.market_cap_usd}}</td>
+                                        <td>graph</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- Footer -->
         <footer class="sticky-footer">
             <div class="container">
                 <div class="text-center">
-                    <small>Copyright © Thomas Juranek 2017</small>
+                    <small>Copyright MyCryptoMonitor 2018</small>
                 </div>
             </div>
         </footer>
@@ -42,7 +77,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="js/dashboard.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/user.js"></script>
+    <script src="js/services/data.js"></script>
+    <script src="js/services/graph.js"></script>
+    <script src="js/controllers/dashboard.js"></script>
+    <script src="js/controllers/marketrundown.js"></script>
+    <script src="js/controllers/reports.js"></script>
+    <script src="js/controllers/charts.js"></script>
 </body>
 
 </html>

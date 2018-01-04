@@ -1,10 +1,16 @@
 angular.module('MCM.charts', [])
 
-.controller('ChartsCtrl', function($scope, $http) {      
-    drawChart("BTC");
+.controller('ChartsCtrl', function($scope, $http, UserServ, DataServ) {      
+    $scope.user = UserServ.user;
 
-    function drawChart(cryptoSym) {
-        // GET HISTORICAL DATA FOR CYPTO
+    DataServ.getData()
+    .then(function(returnData) {
+        $scope.data = returnData.myData;
+
+        drawLineChart("BTC");
+    });
+
+    function drawLineChart(cryptoSym) {
         var url = "https://min-api.cryptocompare.com/data/histoday?fsym=" + cryptoSym + "&tsym=USD&limit=6";
 
         $http.get(url)
@@ -23,7 +29,7 @@ angular.module('MCM.charts', [])
                     graphData.push(_data);
                 }
 
-                var ctx = document.getElementById("chartInvestmentTotals").getContext('2d');
+                var ctx = document.getElementById("chartInvestmentValues").getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
