@@ -10,13 +10,11 @@ angular.module('MCM.data', [])
     var totalProfit = 0;
 
     var getData = function() {
-        console.log("just ran getData in the service");
-
         return $http.get("https://api.coinmarketcap.com/v1/ticker/?limit=0")
             .then(function(data) {
                 marketData = data.data;
                 calcInvestmentData();
-                
+
                 return {
                     myData
                 }
