@@ -12,10 +12,16 @@ angular.module('MCM.user', [])
             id: "walton",
             amount: 17.982
         }, {
-            id: "cardano",
-            amount: 217.68
+            id: "stellar",
+            amount: 318.202
+        }, {
+            id: "litecoin",
+            amount: 1.02314494
+        }, {
+            id: "wabi",
+            amount: 69
         }],
-        invested: 510.61
+        invested: 1000.00
     }
 
     return {

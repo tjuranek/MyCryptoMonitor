@@ -30,26 +30,32 @@
                         <div class="card-body">
                             <div class="list-group">
                                 <a ng-repeat="item in data.investmentData" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-coAntent-between">
+                                    <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1">{{item.name}}</h5>
-                                        <small>{{item.rank}} | {{item.symbol}}</small>  
+                                        <small>{{item.rank}} | {{item.symbol}}</small>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-lg-6">
-                                            <p><b>${{item.price_usd}}</b> USD ({{item.percent_change_24h}})</p>
-                                            <p>{{item.price_btc}} BTC</p>
+                                        <div class="col-lg-6" class="list-coin-value">
+                                            <p class="mb-1"><b>${{item.price_usd}}</b> USD ({{item.percent_change_24h}}%)</p>
+                                            <p class="mb-1">{{item.price_btc}} BTC</p>
                                         </div>
                                         <div class="col-lg-6">
-                                            <p>Market Cap: {{item.total_supply}}</p>
-                                            <!--<p>Volume (24h): {{item.24h_volume_usd}}</p>-->
-                                            <p>Available Supply: {{item.availabe_supply}}</p>
-                                            <p>Total Supply: {{item.total_supply}}</p>
+                                            <p class="mb-1"><b>${{item.portfolio_value_usd}}</b> USD ({{item.percent_change_24h}}%)</p>
                                         </div>
-                                    </div> 
+                                    </div>
 
-                                    <small>From CoinMarketCap.com</small>
-                                </a>
+                                    <hr class="hr-black">
+
+                                    <ul class="mb-1">
+                                        <li>Market Cap: {{item.total_supply}}</li>
+                                        <li>Available Supply: {{item.availabe_supply}}</li>
+                                        <li>Total Supply: {{item.total_supply}}</li>
+                                    </ul>
+                                    
+                                    <!--<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>-->
+                                    <small>Last updated: {{item.last_updated * 1000 | date:'HH:mm:ss'}}</small>
+                                  </a>
                             </div>
                         </div>
                     </div>

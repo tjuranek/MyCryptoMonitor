@@ -6,6 +6,7 @@ angular.module('MCM.marketrundown', [])
     DataServ.getData()
     .then(function(returnData) {
         $scope.data = returnData.myData;
+        console.log($scope.data);
     });
 });
 
