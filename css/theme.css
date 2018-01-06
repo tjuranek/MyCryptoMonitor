@@ -30,8 +30,8 @@
     border-color: #000000;
 }
 
-.list-coin-value {
-    border-right-style: solid;
-    border-right-color: #000000;
-    border-right-width: 2px; 
+.card-rundown {
+    background-color: #2c2c2e;
+    border-color: #ffffff;
+    color: #ffffff; 
 }
