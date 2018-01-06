@@ -105,7 +105,6 @@
                                         <th scope="col">Value - Owned</th>
                                         <th scope="col">Change (24hr)</th>
                                         <th scope="col">Market Cap</th>
-                                        <th scope="col">Graph (24hr)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -114,9 +113,8 @@
                                         <td>{{item.name}}</td>
                                         <td>${{item.price_usd}}</td>
                                         <td>${{item.portfolio_value_usd}}</td>
-                                        <td>{{item["percent_change_24h"]}}%</td>
+                                        <td ng-style="item['percent_change_24h'] > 0 && {'color':'green'} || item['percent_change_24h'] < 0 && {'color':'red'}">{{item["percent_change_24h"]}}%</td>
                                         <td>${{item.market_cap_usd}}</td>
-                                        <td>graph</td>
                                     </tr>
                                 </tbody>
                             </table>
