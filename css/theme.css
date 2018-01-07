@@ -35,3 +35,9 @@
     border-color: #ffffff;
     color: #ffffff; 
 }
+
+.card-rundown:hover {
+    background-color: #2c2c2e;
+    border-color: #ffffff;
+    color: #ffffff; 
+}

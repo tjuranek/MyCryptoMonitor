@@ -25,65 +25,19 @@
                 <div class="col-lg-6">
                     <div class="dash-card">
                         <div class="card-header">
-                            Coins - Owned
-                        </div>
-                        <div class="card-body">
-                            <div class="list-group">
-                                <a style="margin-bottom: 15px; border-radius: 0px" ng-repeat="item in data.investmentData" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h4 class="mb-1">{{item.name}} ({{item.symbol}})</h4>
-                                        <small>#{{item.rank}}</small>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <p class="mb-1"><b>Price - USD:</b> ${{item.price_usd | number:2}} ({{item.percent_change_24h | number:2}}%)</p>
-                                            <p class="mb-1"><b>Price - BTC:</b> {{item.price_btc}} BTC</p>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <p class="mb-1"><b>Portfolio Value: </b>${{item.portfolio_value_usd | number:2}}</p>
-                                        </div>
-                                    </div>
-
-                                    <hr class="hr-black">
-
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <p class="mb-1">24h Volume: ${{item["24h_volume_usd"]}}</p>
-                                            <p class="mb-1">Market Cap: ${{item.market_cap_usd}}</p>
-                                            <p class="mb-1">Available Supply: {{item.available_supply}} {{item.symbol}} </p>
-                                            <p class="mb-1">Total Supply: ${{item.total_supply}} {{item.symbol}}</p>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <p class="mb-1">Change (1hr): {{item.percent_change_1h}}%</p>
-                                            <p class="mb-1">Change (24hr): {{item.percent_change_24h}}%</p>
-                                            <p class="mb-1">Change (7d): {{item.percent_change_7d}}%</p>
-                                        </div>
-                                    </div>
-
-                                    <hr class="hr-black">
-                                    <textarea class="form-control" rows="2" id="comment"></textarea>
-                                    <hr class="hr-black">
-                                    <small>Last updated: {{item.last_updated * 1000 | date:'HH:mm:ss'}}</small>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="dash-card">
-                        <div class="card-header">
                             Coins - Watchlist
                         </div>
                         <div class="card-body">
                             <div class="list-group">
-                                <a style="margin-bottom: 15px; border-radius: 0px" ng-repeat="item in data.investmentData" href="#" class="list-group-item list-group-item-action flex-column align-items-start card-rundown">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h4 class="mb-1">{{item.name}} ({{item.symbol}})</h4>
-                                        <small>#{{item.rank}}</small>
+                                <div ng-init="cardClicked = 'false'" ng-click="cardClicked = { 'true': 'false', 'false' : 'true'}[cardClicked]" style="margin-bottom: 15px; border-radius: 0px" ng-repeat="item in data.investmentData" class="list-group-item list-group-item-action flex-column align-items-start card-rundown">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h4 class="mb-1">#{{item.rank}} | {{item.name}} ({{item.symbol}})</h4>
+                                        </div>
+                                        <div class="col-lg-6 text-right">
+                                            <small><i ng-show="cardClicked == 'false'" class="fa fa-arrow-left" aria-hidden="true"></i></small>
+                                            <small><i ng-show="cardClicked == 'true'" class="fa fa-arrow-down" aria-hidden="true"></i></small>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -97,28 +51,88 @@
                                         </div>
                                     </div>
 
-                                    <hr>
+                                    <div ng-hide="cardClicked == 'false'">
+                                        <hr>
 
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="mb-1">24h Volume: ${{item["24h_volume_usd"]}}</p>
+                                                <p class="mb-1">Market Cap: ${{item.market_cap_usd}}</p>
+                                                <p class="mb-1">Available Supply: {{item.available_supply}} {{item.symbol}} </p>
+                                                <p class="mb-1">Total Supply: ${{item.total_supply}} {{item.symbol}}</p>
+                                            </div>
+    
+                                            <div class="col-lg-6">
+                                                <p class="mb-1">Change (1hr): {{item.percent_change_1h}}%</p>
+                                                <p class="mb-1">Change (24hr): {{item.percent_change_24h}}%</p>
+                                                <p class="mb-1">Change (7d): {{item.percent_change_7d}}%</p>
+                                            </div>
+                                        </div>
+    
+                                        <hr>
+                                        <textarea class="form-control" rows="2" id="comment"></textarea>
+                                        <hr>
+                                        <small>Last updated: {{item.last_updated * 1000 | date:'HH:mm:ss'}}</small>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="dash-card">
+                        <div class="card-header">
+                            Coins - Watchlist
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group">
+                                <div ng-init="cardClicked = 'false'" ng-click="cardClicked = { 'true': 'false', 'false' : 'true'}[cardClicked]" style="margin-bottom: 15px; border-radius: 0px" ng-repeat="item in data.investmentData" class="list-group-item list-group-item-action flex-column align-items-start card-rundown">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <p class="mb-1">24h Volume: ${{item["24h_volume_usd"]}}</p>
-                                            <p class="mb-1">Market Cap: ${{item.market_cap_usd}}</p>
-                                            <p class="mb-1">Available Supply: {{item.available_supply}} {{item.symbol}} </p>
-                                            <p class="mb-1">Total Supply: ${{item.total_supply}} {{item.symbol}}</p>
+                                            <h4 class="mb-1">#{{item.rank}} | {{item.name}} ({{item.symbol}})</h4>
                                         </div>
-
-                                        <div class="col-lg-6">
-                                            <p class="mb-1">Change (1hr): {{item.percent_change_1h}}%</p>
-                                            <p class="mb-1">Change (24hr): {{item.percent_change_24h}}%</p>
-                                            <p class="mb-1">Change (7d): {{item.percent_change_7d}}%</p>
+                                        <div class="col-lg-6 text-right">
+                                            <small><i ng-show="cardClicked == 'false'" class="fa fa-arrow-left" aria-hidden="true"></i></small>
+                                            <small><i ng-show="cardClicked == 'true'" class="fa fa-arrow-down" aria-hidden="true"></i></small>
                                         </div>
                                     </div>
 
-                                    <hr>
-                                    <textarea class="form-control" rows="2" id="comment"></textarea>
-                                    <hr>
-                                    <small>Last updated: {{item.last_updated * 1000 | date:'HH:mm:ss'}}</small>
-                                </a>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <p class="mb-1"><b>Price - USD:</b> ${{item.price_usd | number:2}} <span ng-style="item['percent_change_24h'] > 0 && {'color':'green'} || item['percent_change_24h'] < 0 && {'color':'red'}">({{item.percent_change_24h | number:2}}%)</span></p>
+                                            <p class="mb-1"><b>Price - BTC:</b> {{item.price_btc}} BTC</p>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <p class="mb-1"><b>Portfolio Value: </b>${{item.portfolio_value_usd | number:2}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div ng-hide="cardClicked == 'false'">
+                                        <hr>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="mb-1">24h Volume: ${{item["24h_volume_usd"]}}</p>
+                                                <p class="mb-1">Market Cap: ${{item.market_cap_usd}}</p>
+                                                <p class="mb-1">Available Supply: {{item.available_supply}} {{item.symbol}} </p>
+                                                <p class="mb-1">Total Supply: ${{item.total_supply}} {{item.symbol}}</p>
+                                            </div>
+    
+                                            <div class="col-lg-6">
+                                                <p class="mb-1">Change (1hr): {{item.percent_change_1h}}%</p>
+                                                <p class="mb-1">Change (24hr): {{item.percent_change_24h}}%</p>
+                                                <p class="mb-1">Change (7d): {{item.percent_change_7d}}%</p>
+                                            </div>
+                                        </div>
+    
+                                        <hr>
+                                        <textarea class="form-control" rows="2" id="comment"></textarea>
+                                        <hr>
+                                        <small>Last updated: {{item.last_updated * 1000 | date:'HH:mm:ss'}}</small>
+                                    </div> 
+                                </div>
                             </div>
                         </div>
                     </div>

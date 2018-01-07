@@ -101,9 +101,9 @@
                                     <tr>
                                         <th scope="col">Rank</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Change (24hr)</th>
                                         <th scope="col">Value - Coin</th>
                                         <th scope="col">Value - Owned</th>
-                                        <th scope="col">Change (24hr)</th>
                                         <th scope="col">Market Cap</th>
                                     </tr>
                                 </thead>
@@ -111,9 +111,9 @@
                                     <tr ng-repeat="item in data.investmentData">
                                         <td>#{{item.rank}}</td>
                                         <td>{{item.name}}</td>
+                                        <td ng-style="item['percent_change_24h'] > 0 && {'color':'green'} || item['percent_change_24h'] < 0 && {'color':'red'}">{{item["percent_change_24h"]}}%</td>
                                         <td>${{item.price_usd}}</td>
                                         <td>${{item.portfolio_value_usd}}</td>
-                                        <td ng-style="item['percent_change_24h'] > 0 && {'color':'green'} || item['percent_change_24h'] < 0 && {'color':'red'}">{{item["percent_change_24h"]}}%</td>
                                         <td>${{item.market_cap_usd}}</td>
                                     </tr>
                                 </tbody>
