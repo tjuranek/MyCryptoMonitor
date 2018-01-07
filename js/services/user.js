@@ -7,19 +7,24 @@ angular.module('MCM.user', [])
         email: "thomas@juranek.com",
         currencies: [{
             id: "raiblocks",
-            amount: 5
+            amount: 5,
+            notes: "Bought: .00057689 | Target: .001574957"
         }, {
             id: "walton",
-            amount: 17.982
+            amount: 17.982,
+            notes: "Bought: .00057689 | Target: .001574957"
         }, {
             id: "stellar",
-            amount: 318.202
+            amount: 318.202,
+            notes: "Bought: .00057689 | Target: .001574957"
         }, {
             id: "litecoin",
-            amount: 1.02314494
+            amount: 1.02314494,
+            notes: "Bought: .00057689 | Target: .001574957"
         }, {
             id: "wabi",
-            amount: 69
+            amount: 69,
+            notes: "Bought: .00057689 | Target: .001574957"
         }],
         invested: 1000.00
     }

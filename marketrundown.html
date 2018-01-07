@@ -25,18 +25,18 @@
                 <div class="col-lg-6">
                     <div class="dash-card">
                         <div class="card-header">
-                            Coins - Watchlist
+                            Coins - Portfolio
                         </div>
                         <div class="card-body">
                             <div class="list-group">
-                                <div ng-init="cardClicked = 'false'" ng-click="cardClicked = { 'true': 'false', 'false' : 'true'}[cardClicked]" style="margin-bottom: 15px; border-radius: 0px" ng-repeat="item in data.investmentData" class="list-group-item list-group-item-action flex-column align-items-start card-rundown">
-                                    <div class="row">
+                                <div ng-init="cardClicked = 'false'" style="margin-bottom: 15px; border-radius: 0px" ng-repeat="item in data.investmentData" class="list-group-item list-group-item-action flex-column align-items-start card-rundown">
+                                    <div ng-click="cardClicked = {'true': 'false', 'false' : 'true'}[cardClicked]" class="row">
                                         <div class="col-lg-6">
                                             <h4 class="mb-1">#{{item.rank}} | {{item.name}} ({{item.symbol}})</h4>
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <small><i ng-show="cardClicked == 'false'" class="fa fa-arrow-left" aria-hidden="true"></i></small>
-                                            <small><i ng-show="cardClicked == 'true'" class="fa fa-arrow-down" aria-hidden="true"></i></small>
+                                            <small><i ng-show="cardClicked == 'false'" class="fa fa-arrow-left" aria-hidden="false"></i></small>
+                                            <small><i ng-show="cardClicked == 'true'" class="fa fa-arrow-down" aria-hidden="false"></i></small>
                                         </div>
                                     </div>
 
@@ -48,6 +48,7 @@
 
                                         <div class="col-lg-6">
                                             <p class="mb-1"><b>Portfolio Value: </b>${{item.portfolio_value_usd | number:2}}</p>
+                                            <p class="mb-1"><b>Portfolio Funds: </b>{{item.amount}} {{item.symbol}}</p>
                                         </div>
                                     </div>
 
@@ -63,16 +64,27 @@
                                             </div>
     
                                             <div class="col-lg-6">
-                                                <p class="mb-1">Change (1hr): {{item.percent_change_1h}}%</p>
-                                                <p class="mb-1">Change (24hr): {{item.percent_change_24h}}%</p>
-                                                <p class="mb-1">Change (7d): {{item.percent_change_7d}}%</p>
+                                                <p class="mb-1">Change (1hr): <span ng-style="item.percent_change_1h > 0 && {'color':'green'} || item.percent_change_1h < 0 && {'color':'red'}">{{item.percent_change_1h | number:2}}%</span></p>
+                                                <p class="mb-1">Change (24hr): <span ng-style="item.percent_change_24h > 0 && {'color':'green'} || item.percent_change_24h < 0 && {'color':'red'}">{{item.percent_change_24h | number:2}}%</span></p>
+                                                <p class="mb-1">Change (7d): <span ng-style="item.percent_change_7d > 0 && {'color':'green'} || item.percent_change_7d < 0 && {'color':'red'}">{{item.percent_change_7d | number:2}}%</span></p>
                                             </div>
                                         </div>
     
                                         <hr>
-                                        <textarea class="form-control" rows="2" id="comment"></textarea>
+
+                                        <textarea class="form-control" rows="2" id="comment" ng-model="item.notes"></textarea>
+
                                         <hr>
-                                        <small>Last updated: {{item.last_updated * 1000 | date:'HH:mm:ss'}}</small>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <button type="button" class="btn">Go to {{item.symbol}}'s Chart</button>
+                                            </div>
+    
+                                            <div class="col-lg-6">
+                                                <!--<small>Last updated: {{item.last_updated * 1000 | date:'HH:mm:ss'}}</small>-->
+                                            </div>
+                                        </div>
                                     </div> 
                                 </div>
                             </div>

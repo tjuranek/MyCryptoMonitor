@@ -31,6 +31,8 @@ angular.module('MCM.data', [])
             for (var b = 0; b < marketData.length; b++) {
                 if (marketData[b].id == searchTerm) {
                     marketData[b].portfolio_value_usd = user.currencies[a].amount * marketData[b].price_usd;
+                    marketData[b].notes = user.currencies[a].notes;
+                    marketData[b].amount = user.currencies[a].amount;
                     investmentData.push(marketData[b]);
                     exactValue += user.currencies[a].amount * marketData[b].price_usd;
                 }
