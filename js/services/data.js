@@ -4,6 +4,7 @@ angular.module('MCM.data', [])
     var myData;
     var marketData;
     var investmentData = [];
+    var watchlistData = [];
 
     var totalInvested = 0;
     var totalValue = 0;
@@ -31,13 +32,28 @@ angular.module('MCM.data', [])
             for (var b = 0; b < marketData.length; b++) {
                 if (marketData[b].id == searchTerm) {
                     marketData[b].portfolio_value_usd = user.currencies[a].amount * marketData[b].price_usd;
-                    marketData[b].notes = user.currencies[a].notes;
+                    marketData[b].currencies_notes = user.currencies[a].notes;
                     marketData[b].amount = user.currencies[a].amount;
+
                     investmentData.push(marketData[b]);
                     exactValue += user.currencies[a].amount * marketData[b].price_usd;
                 }
             }
         }
+
+        for (var z = 0; z < user.watchlist.length; z++) {
+            var searchTerm = user.watchlist[z].id;
+
+            for (var y = 0; y < marketData.length; y++) {
+                if (marketData[y].id == searchTerm) {
+                    marketData[y].watchlist_notes = user.watchlist[z].notes;
+                    watchlistData.push(marketData[y]);
+                }
+            }
+        }
+
+        investmentData.sort(function(a, b){return a.rank - b.rank});
+        watchlistData.sort(function(a, b){return a.rank - b.rank});
 
         totalInvested = user.invested;
 
@@ -50,6 +66,7 @@ angular.module('MCM.data', [])
         myData = {
             marketData: marketData,
             investmentData: investmentData,
+            watchlistData: watchlistData,
             totalInvested: totalInvested,
             totalValue: totalValue,
             totalProfit: totalProfit

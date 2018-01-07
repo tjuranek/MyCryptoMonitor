@@ -26,6 +26,13 @@ angular.module('MCM.user', [])
             amount: 69,
             notes: "Bought: .00057689 | Target: .001574957"
         }],
+        watchlist: [{
+            id: "ethereum",
+            notes: "Notes on why you'd buy this crypto"
+        }, {
+            id: "bitcoin",
+            notes: "Notes on why you'd buy this crypto"
+        }],
         invested: 1000.00
     }
 
