@@ -14,8 +14,8 @@ angular.module('MCM.user', [])
             amount: 17.982,
             notes: "Bought: .00057689 | Target: .001574957"
         }, {
-            id: "stellar",
-            amount: 318.202,
+            id: "nuls",
+            amount: 28.971,
             notes: "Bought: .00057689 | Target: .001574957"
         }, {
             id: "litecoin",
@@ -32,6 +32,12 @@ angular.module('MCM.user', [])
         }, {
             id: "bitcoin",
             notes: "Notes on why you'd buy this crypto"
+        }, {
+            id: "kyber-network",
+            notes: "dj shill"
+        }, {
+            id: "stellar",
+            notes: "previous owned"
         }],
         invested: 1000.00
     }
