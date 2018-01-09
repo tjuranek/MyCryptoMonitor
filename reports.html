@@ -24,6 +24,31 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3 text-center">
+                                    test
+                                </div>
+                                <div class="col-lg-3 text-center">
+                                    test
+                                </div>
+                                <div class="col-lg-3 text-center">
+                                    test
+                                </div>
+                                <div class="col-lg-3 text-center">
+                                    test
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Report -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-3">
                         <div class="card-header">
                             Daily Report
                         </div>
@@ -31,30 +56,73 @@
                             <p><b>Date:</b> {{date}}</p>
                             <p><b>Net Value:</b> ${{data.totalValue}}</p>
 
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Rank</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Value - Coin</th>
-                                        <th scope="col">Value - Owned</th>
-                                        <th scope="col">Change (24hr)</th>
-                                        <th scope="col">Market Cap</th>
-                                        <th scope="col">Graph (24hr)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="item in data.investmentData">
-                                        <td>#{{item.rank}}</td>
-                                        <td>{{item.name}}</td>
-                                        <td>${{item.price_usd}}</td>
-                                        <td>${{item.price_usd}}</td>
-                                        <td>{{item.percent_change_24h}}%</td>
-                                        <td>${{item.market_cap_usd}}</td>
-                                        <td>graph</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <p><b>Portfolio:</b></p>
+                                </div>
+                                <div class="col-lg-10">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Rank</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Portfolio Value</th>
+                                                <th scope="col">Change (24hr)</th>
+                                                <th scope="col">Change (7d)</th>
+                                                <th scope="col">24 Hour Volume</th>
+                                                <th scope="col">Market Cap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in data.investmentData">
+                                                <td>#{{item.rank}}</td>
+                                                <td>{{item.name}}</td>
+                                                <td>${{item.price_usd | number: 2}}</td>
+                                                <td>${{item.portfolio_value_usd | number:2}} ({{item.amount}} {{item.symbol}})</td>
+                                                <td><span ng-style="item.percent_change_24h > 0 && {'color':'green'} || item.percent_change_24h < 0 && {'color':'red'}"> {{item.percent_change_24h | number:2}}% </span></td>
+                                                <td><span ng-style="item.percent_change_7d > 0 && {'color':'green'} || item.percent_change_7d < 0 && {'color':'red'}"> {{item.percent_change_7d | number:2}}%</span></td>
+                                                <td>${{item["24h_volume_usd"] | number: fractionSize}}</td>
+                                                <td>${{item.market_cap_usd | number: fractionSize}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <p><b>Watchlist:</b></p>
+                                </div>
+                                <div class="col-lg-10">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Rank</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Change (24hr)</th>
+                                                <th scope="col">Change (7d)</th>
+                                                <th scope="col">24 Hour Volume</th>
+                                                <th scope="col">Market Cap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in data.watchlistData">
+                                                <td>#{{item.rank}}</td>
+                                                <td>{{item.name}}</td>
+                                                <td>${{item.price_usd | number:2}}</td>
+                                                <td><span ng-style="item.percent_change_24h > 0 && {'color':'green'} || item.percent_change_24h < 0 && {'color':'red'}"> {{item.percent_change_24h | number:2}}% </span></td>
+                                                <td><span ng-style="item.percent_change_7d > 0 && {'color':'green'} || item.percent_change_7d < 0 && {'color':'red'}"> {{item.percent_change_7d | number:2}}%</span></td>
+                                                <td>${{item["24h_volume_usd"]}}</td>
+                                                <td>${{item.market_cap_usd}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
