@@ -24,11 +24,119 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3 text-center">
+                                    <label for="chart-display-input">Display Type:</label>
+                                    <select class="custom-select input-group mb-3" id="chart-display-input">
+                                        <option value="1">Single Chart</option>
+                                        <option value="2">Compare Charts</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 text-center">
+                                    <label for="chart-one-input">Chart One Coin:</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="chart-one-input" aria-describedby="basic-addon3">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 text-center">
+                                    <label for="chart-two-input">Chart Two Coin:</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="chart-two-input" aria-describedby="basic-addon3">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 text-center">
+                                    <label for="chart-update-button">Reload Data:</label>
+                                    <div class="input-group mb-3">
+                                        <button type="button" class="btn btn-block" style="background-color: #ffffff;" id="chart-update-button">Update Chart(s)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Report -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-3">
                         <div class="card-header">
-                            Charts
+                            Daily Report
                         </div>
                         <div class="card-body">
-                            <canvas id="chartInvestmentValues" width="100%" height="40%"></canvas>
+                            <p><b>Date:</b> {{date}}</p>
+                            <p><b>Net Value:</b> ${{data.totalValue}}</p>
+
+                                <canvas id="chartInvestmentValues" width="100%"></canvas>
+
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <p><b>Portfolio:</b></p>
+                                </div>
+                                <div class="col-lg-10">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Rank</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Portfolio Value</th>
+                                                <th scope="col">Change (24hr)</th>
+                                                <th scope="col">Change (7d)</th>
+                                                <th scope="col">24 Hour Volume</th>
+                                                <th scope="col">Market Cap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in data.investmentData">
+                                                <td>#{{item.rank}}</td>
+                                                <td>{{item.name}}</td>
+                                                <td>${{item.price_usd | number: 2}}</td>
+                                                <td>${{item.portfolio_value_usd | number:2}} ({{item.amount}} {{item.symbol}})</td>
+                                                <td><span ng-style="item.percent_change_24h > 0 && {'color':'green'} || item.percent_change_24h < 0 && {'color':'red'}"> {{item.percent_change_24h | number:2}}% </span></td>
+                                                <td><span ng-style="item.percent_change_7d > 0 && {'color':'green'} || item.percent_change_7d < 0 && {'color':'red'}"> {{item.percent_change_7d | number:2}}%</span></td>
+                                                <td>${{item["24h_volume_usd"] | number: fractionSize}}</td>
+                                                <td>${{item.market_cap_usd | number: fractionSize}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <p><b>Watchlist:</b></p>
+                                </div>
+                                <div class="col-lg-10">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Rank</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Change (24hr)</th>
+                                                <th scope="col">Change (7d)</th>
+                                                <th scope="col">24 Hour Volume</th>
+                                                <th scope="col">Market Cap</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in data.watchlistData">
+                                                <td>#{{item.rank}}</td>
+                                                <td>{{item.name}}</td>
+                                                <td>${{item.price_usd | number:2}}</td>
+                                                <td><span ng-style="item.percent_change_24h > 0 && {'color':'green'} || item.percent_change_24h < 0 && {'color':'red'}"> {{item.percent_change_24h | number:2}}% </span></td>
+                                                <td><span ng-style="item.percent_change_7d > 0 && {'color':'green'} || item.percent_change_7d < 0 && {'color':'red'}"> {{item.percent_change_7d | number:2}}%</span></td>
+                                                <td>${{item["24h_volume_usd"]}}</td>
+                                                <td>${{item.market_cap_usd}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
