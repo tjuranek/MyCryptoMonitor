@@ -19,11 +19,11 @@ Programming:
             ✔ enhance the numbers, add more @done (1/4/2018, 3:32:43 PM)
             ☐ enhance the graph to be more descriptive
             ✔ finish the daily report section @done (1/4/2018, 3:32:48 PM)
-            ☐ refactor investment totals function
+            ✔ refactor investment totals function @done (1/9/2018, 10:29:22 PM)
 
         Reports:
-            ☐ date picker
-            ☐ implement reports
+            ✔ date picker @done (1/9/2018, 10:29:11 PM)
+            ✔ implement reports @done (1/9/2018, 10:29:13 PM)
             ☐ compare two reports from date selection
 
         Charts:
@@ -33,7 +33,7 @@ Programming:
             ☐ compare two coin summaries
 
         News:
-            ☐ determine if this is worth implementing
+            ✔ determine if this is worth implementing @done (1/9/2018, 10:29:33 PM)
 
         Settings:
             ☐ name
@@ -54,9 +54,9 @@ Programming:
                 ✔ buttons to toggle time span @done (1/4/2018, 3:34:59 PM)
 
         Reports:
-            ☐ graphs in the table
+            ✔ graphs in the table @done (1/9/2018, 10:29:42 PM)
             ✔ update table data @done (1/4/2018, 3:35:05 PM)
-            ☐ finish styling
+            ✔ finish styling @done (1/9/2018, 10:29:44 PM)
             ✔ add customization features @done (1/4/2018, 3:35:11 PM)
 
         Search:

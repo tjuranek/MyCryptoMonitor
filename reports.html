@@ -27,23 +27,35 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-3 text-center">
-                                    test
+                                    <label for="report-display-input">Display Type:</label>
+                                    <select class="custom-select input-group mb-3" id="report-display-input">
+                                        <option value="1">Single Report</option>
+                                        <option value="2">Compare Reports</option>
+                                    </select>
                                 </div>
                                 <div class="col-lg-3 text-center">
-                                    test
+                                    <label for="report-one-input">Report One Date:</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="report-one-input" aria-describedby="basic-addon3">
+                                    </div>
                                 </div>
                                 <div class="col-lg-3 text-center">
-                                    test
+                                    <label for="report-two-input">Report Two Date:</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="report-two-input" aria-describedby="basic-addon3">
+                                    </div>
                                 </div>
                                 <div class="col-lg-3 text-center">
-                                    test
+                                    <label for="report-update-button">Reload Data:</label>
+                                    <div class="input-group mb-3">
+                                        <button type="button" class="btn btn-block" style="background-color: #ffffff;" id="report-update-button">Update Report(s)</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <!-- Report -->
             <div class="row">
@@ -142,7 +154,7 @@
     <!-- Library JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/report.js/2.7.1/Chart.min.js"></script>
 
     <!-- Custom JS -->
     <script src="js/app.js"></script>
