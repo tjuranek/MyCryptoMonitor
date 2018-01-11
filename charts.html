@@ -30,7 +30,7 @@
                                 <div class="col-lg-3 text-center">
                                     <label for="chart-display-input">Display Type:</label>
                                     <select class="custom-select input-group mb-3" id="chart-display-input">
-                                        <option value="1">Single Chart</option>
+                                        <option ng-selected="">Single Chart</option>
                                         <option value="2">Compare Charts</option>
                                     </select>
                                 </div>
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <!-- Single Chart -->
+            <!-- Single Chart
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-3">
@@ -93,6 +93,94 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+
+            <!-- Double Chart -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Chart - {{chartOneCoin}}
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <canvas id="chartOne" width="100%"></canvas>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h5>{{chartOneData.name}}</h5>
+    
+                                    <div class="row">
+                                        <div class="col-md-6" style="border-right: 1px solid #ffffff;">
+                                            <p class="mb-1"><b>Price - USD:</b> ${{chartOneData.price_usd | number:2}} <span ng-style="chartOneData['percent_change_24h'] > 0 && {'color':'green'} || chartOneData['percent_change_24h'] < 0 && {'color':'red'}">({{chartOneData.percent_change_24h | number:2}}%)</span></p>
+                                            <p class="mb-1"><b>Price - BTC:</b> {{chartOneData.price_btc}} BTC</p>
+    
+                                            <hr>
+    
+                                            <p class="mb-1">24h Volume: ${{chartOneData["24h_volume_usd"]}}</p>
+                                            <p class="mb-1">Market Cap: ${{chartOneData.market_cap_usd}}</p>
+                                            <p class="mb-1">Available Supply: {{chartOneData.available_supply}} {{chartOneData.symbol}} </p>
+                                            <p class="mb-1">Total Supply: ${{chartOneData.total_supply}} {{chartOneData.symbol}}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="mb-1">Change (1hr): <span ng-style="chartOneData.percent_change_1h > 0 && {'color':'green'} || chartOneData.percent_change_1h < 0 && {'color':'red'}">{{chartOneData.percent_change_1h | number:2}}%</span></p>
+                                            <p class="mb-1">Change (24hr): <span ng-style="chartOneData.percent_change_24h > 0 && {'color':'green'} || chartOneData.percent_change_24h < 0 && {'color':'red'}">{{chartOneData.percent_change_24h | number:2}}%</span></p>
+                                            <p class="mb-1">Change (7d): <span ng-style="chartOneData.percent_change_7d > 0 && {'color':'green'} || chartOneData.percent_change_7d < 0 && {'color':'red'}">{{chartOneData.percent_change_7d | number:2}}%</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Chart - {{chartTwoCoin}}
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <canvas id="chartTwo" width="100%"></canvas>
+                                </div>
+                            </div>
+
+                            <hr>
+                            
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h5>{{chartTwoData.name}}</h5>
+    
+                                    <div class="row">
+                                        <div class="col-md-6" style="border-right: 1px solid #ffffff;">
+                                            <p class="mb-1"><b>Price - USD:</b> ${{chartTwoData.price_usd | number:2}} <span ng-style="chartTwoData['percent_change_24h'] > 0 && {'color':'green'} || chartTwoData['percent_change_24h'] < 0 && {'color':'red'}">({{chartTwoData.percent_change_24h | number:2}}%)</span></p>
+                                            <p class="mb-1"><b>Price - BTC:</b> {{chartTwoData.price_btc}} BTC</p>
+    
+                                            <hr>
+    
+                                            <p class="mb-1">24h Volume: ${{chartTwoData["24h_volume_usd"]}}</p>
+                                            <p class="mb-1">Market Cap: ${{chartTwoData.market_cap_usd}}</p>
+                                            <p class="mb-1">Available Supply: {{chartTwoData.available_supply}} {{chartTwoData.symbol}} </p>
+                                            <p class="mb-1">Total Supply: ${{chartTwoData.total_supply}} {{chartTwoData.symbol}}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="mb-1">Change (1hr): <span ng-style="chartTwoData.percent_change_1h > 0 && {'color':'green'} || chartTwoData.percent_change_1h < 0 && {'color':'red'}">{{chartTwoData.percent_change_1h | number:2}}%</span></p>
+                                            <p class="mb-1">Change (24hr): <span ng-style="chartTwoData.percent_change_24h > 0 && {'color':'green'} || chartTwoData.percent_change_24h < 0 && {'color':'red'}">{{chartTwoData.percent_change_24h | number:2}}%</span></p>
+                                            <p class="mb-1">Change (7d): <span ng-style="chartTwoData.percent_change_7d > 0 && {'color':'green'} || chartTwoData.percent_change_7d < 0 && {'color':'red'}">{{chartTwoData.percent_change_7d | number:2}}%</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
