@@ -21,6 +21,7 @@
     <!-- Content -->
     <div class="content-wrapper">
         <div class="container-fluid">
+            <!-- Display Options -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-3">
@@ -57,84 +58,39 @@
                 </div>
             </div>
 
-            <!-- Report -->
+            <!-- Single Chart -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-3">
                         <div class="card-header">
-                            Daily Report
+                            Chart - {{chartOneCoin}}
                         </div>
                         <div class="card-body">
-                            <p><b>Date:</b> {{date}}</p>
-                            <p><b>Net Value:</b> ${{data.totalValue}}</p>
-
-                                <canvas id="chartInvestmentValues" width="100%"></canvas>
-
                             <div class="row">
-                                <div class="col-lg-2">
-                                    <p><b>Portfolio:</b></p>
+                                <div class="col-lg-6">
+                                    <canvas id="chartInvestmentValues" width="100%"></canvas>
                                 </div>
-                                <div class="col-lg-10">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Rank</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Portfolio Value</th>
-                                                <th scope="col">Change (24hr)</th>
-                                                <th scope="col">Change (7d)</th>
-                                                <th scope="col">24 Hour Volume</th>
-                                                <th scope="col">Market Cap</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="item in data.investmentData">
-                                                <td>#{{item.rank}}</td>
-                                                <td>{{item.name}}</td>
-                                                <td>${{item.price_usd | number: 2}}</td>
-                                                <td>${{item.portfolio_value_usd | number:2}} ({{item.amount}} {{item.symbol}})</td>
-                                                <td><span ng-style="item.percent_change_24h > 0 && {'color':'green'} || item.percent_change_24h < 0 && {'color':'red'}"> {{item.percent_change_24h | number:2}}% </span></td>
-                                                <td><span ng-style="item.percent_change_7d > 0 && {'color':'green'} || item.percent_change_7d < 0 && {'color':'red'}"> {{item.percent_change_7d | number:2}}%</span></td>
-                                                <td>${{item["24h_volume_usd"] | number: fractionSize}}</td>
-                                                <td>${{item.market_cap_usd | number: fractionSize}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                                <div class="col-lg-6">
+                                    <h5>{{chartOneData.name}}</h5>
 
-                            <br>
+                                    <div class="row">
+                                        <div class="col-md-6" style="border-right: 1px solid #ffffff;">
+                                            <p class="mb-1"><b>Price - USD:</b> ${{chartOneData.price_usd | number:2}} <span ng-style="chartOneData['percent_change_24h'] > 0 && {'color':'green'} || chartOneData['percent_change_24h'] < 0 && {'color':'red'}">({{chartOneData.percent_change_24h | number:2}}%)</span></p>
+                                            <p class="mb-1"><b>Price - BTC:</b> {{chartOneData.price_btc}} BTC</p>
 
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <p><b>Watchlist:</b></p>
-                                </div>
-                                <div class="col-lg-10">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Rank</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Change (24hr)</th>
-                                                <th scope="col">Change (7d)</th>
-                                                <th scope="col">24 Hour Volume</th>
-                                                <th scope="col">Market Cap</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="item in data.watchlistData">
-                                                <td>#{{item.rank}}</td>
-                                                <td>{{item.name}}</td>
-                                                <td>${{item.price_usd | number:2}}</td>
-                                                <td><span ng-style="item.percent_change_24h > 0 && {'color':'green'} || item.percent_change_24h < 0 && {'color':'red'}"> {{item.percent_change_24h | number:2}}% </span></td>
-                                                <td><span ng-style="item.percent_change_7d > 0 && {'color':'green'} || item.percent_change_7d < 0 && {'color':'red'}"> {{item.percent_change_7d | number:2}}%</span></td>
-                                                <td>${{item["24h_volume_usd"]}}</td>
-                                                <td>${{item.market_cap_usd}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                            <hr>
+
+                                            <p class="mb-1">24h Volume: ${{chartOneData["24h_volume_usd"]}}</p>
+                                            <p class="mb-1">Market Cap: ${{chartOneData.market_cap_usd}}</p>
+                                            <p class="mb-1">Available Supply: {{chartOneData.available_supply}} {{chartOneData.symbol}} </p>
+                                            <p class="mb-1">Total Supply: ${{chartOneData.total_supply}} {{chartOneData.symbol}}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p class="mb-1">Change (1hr): <span ng-style="chartOneData.percent_change_1h > 0 && {'color':'green'} || chartOneData.percent_change_1h < 0 && {'color':'red'}">{{chartOneData.percent_change_1h | number:2}}%</span></p>
+                                            <p class="mb-1">Change (24hr): <span ng-style="chartOneData.percent_change_24h > 0 && {'color':'green'} || chartOneData.percent_change_24h < 0 && {'color':'red'}">{{chartOneData.percent_change_24h | number:2}}%</span></p>
+                                            <p class="mb-1">Change (7d): <span ng-style="chartOneData.percent_change_7d > 0 && {'color':'green'} || chartOneData.percent_change_7d < 0 && {'color':'red'}">{{chartOneData.percent_change_7d | number:2}}%</span></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
