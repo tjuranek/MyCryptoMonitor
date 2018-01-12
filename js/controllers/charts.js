@@ -53,7 +53,7 @@ angular.module('MCM.charts', [])
                     graphData.push(_data);
                 }
 
-                var ctx = document.getElementById("chartInvestmentValues").getContext('2d');
+                var ctx = document.getElementById("chartSingleRow").getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
@@ -102,7 +102,7 @@ angular.module('MCM.charts', [])
                     graphData.push(_data);
                 }
 
-                var ctx = document.getElementById("chartInvestmentValues").getContext('2d');
+                var ctx = document.getElementById("chartOne").getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
@@ -151,7 +151,7 @@ angular.module('MCM.charts', [])
                     graphData.push(_data);
                 }
 
-                var ctx = document.getElementById("chartInvestmentValues").getContext('2d');
+                var ctx = document.getElementById("chartTwo").getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'line',
                     data: {
