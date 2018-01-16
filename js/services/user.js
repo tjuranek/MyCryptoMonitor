@@ -10,8 +10,8 @@ angular.module('MCM.user', [])
             amount: 5,
             notes: "Bought: .00057689 | Target: .001574957"
         }, {
-            id: "walton",
-            amount: 17.982,
+            id: "bitcoin",
+            amount: .04785380,
             notes: "Bought: .00057689 | Target: .001574957"
         }, {
             id: "nuls",
@@ -33,7 +33,7 @@ angular.module('MCM.user', [])
             id: "bitcoin",
             notes: "Notes on why you'd buy this crypto"
         }, {
-            id: "kyber-network",
+            id: "walton",
             notes: "dj shill"
         }, {
             id: "stellar",
