@@ -14,15 +14,35 @@
     <link href="css/theme.css" rel="stylesheet">
 </head>
 
-<body ng-app="MyCryptoMonitor" ng-controller="DashboardCtrl" class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body ng-app="MyCryptoMonitor" ng-controller="SettingsCtrl" class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation -->
     <div ng-include="'navigation.html'"></div>
 
     <div class="content-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
-                    <h2>Settings</h2>
+                <div class="col-lg-6">
+                    <div class="dash-card">
+                        <div class="card-header">
+                            Settings - Portfolio
+                        </div>
+                        <div class="card-body">
+                            <div ng-init="isMouseover = 'false'" ng-mouseenter="isMouseover = 'true'" ng-mouseleave="isMouseover = 'false'" style="border-style: solid; border-width: 2px; border-color: white; margin-top:15px;" ng-repeat="item in portfolio">
+                                <p style="width: 80%; padding-left: 2%; padding-top: 1%;" ng-hide="isMouseover == 'true'">{{item.id}}</p>
+                                <p style="width: 80%; padding-left: 2%; padding-top: 1%; color: red;" ng-hide="isMouseover == 'false'"><i class="fa fa-times" aria-hidden="true"></i>  {{item.id}}</p>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="dash-card">
+                        <div class="card-header">
+                            Settings - Watchlist
+                        </div>
+                        <div class="card-body">
+                            <p ng-repeat="item in watchlist">{{item.id}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,7 +50,7 @@
         <footer class="sticky-footer">
             <div class="container">
                 <div class="text-center">
-                    <small>Copyright © Thomas Juranek 2017</small>
+                    <small>Copyright © Thomas Juranek 2018</small>
                 </div>
             </div>
         </footer>
@@ -42,7 +62,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="js/dashboard.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services/user.js"></script>
+    <script src="js/services/data.js"></script>
+    <script src="js/services/graph.js"></script>
+    <script src="js/controllers/dashboard.js"></script>
+    <script src="js/controllers/marketrundown.js"></script>
+    <script src="js/controllers/reports.js"></script>
+    <script src="js/controllers/charts.js"></script>
+    <script src="js/controllers/settings.js"></script>
+
 </body>
 
 </html>
