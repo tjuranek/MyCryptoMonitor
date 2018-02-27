@@ -6,7 +6,7 @@ angular.module('MCM.user', [])
         name: "Thomas Juranek",
         email: "thomas@juranek.com",
         currencies: [{
-            id: "raiblocks",
+            id: "nano",
             amount: 5,
             notes: "Bought: .00057689 | Target: .001574957"
         }, {

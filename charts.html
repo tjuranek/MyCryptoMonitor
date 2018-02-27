@@ -29,9 +29,9 @@
                             <div class="row">
                                 <div class="col-lg-3 text-center">
                                     <label for="chart-display-input">Display Type:</label>
-                                    <select class="custom-select input-group mb-3" id="chart-display-input">
-                                        <option ng-selected="">Single Chart</option>
-                                        <option value="2">Compare Charts</option>
+                                    <select class="custom-select input-group mb-3" ng-model="chart-display-type" id="chart-display-input">
+                                        <option value="">Single Chart</option>
+                                        <option value="compare-chart">Compare Charts</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3 text-center">
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <!-- Single Chart
+            <!-- Single Chart -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card mb-3">
@@ -97,7 +97,6 @@
                     </div>
                 </div>
             </div>
-            -->
 
             <!-- Double Chart -->
             <div class="row">
